@@ -28,10 +28,14 @@ public class ActionSauvegarderInstrument extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         JFileChooser choixFichier = new JFileChooser();
         choixFichier.setCurrentDirectory(null);
-        int actionUtilisateur = choixFichier.showOpenDialog(interfacePrincipale);
+        int actionUtilisateur = choixFichier.showSaveDialog(interfacePrincipale);
         
         if (actionUtilisateur == JFileChooser.APPROVE_OPTION) {
             File fichier = choixFichier.getSelectedFile();
+
+            if (!fichier.getName().endsWith(".inst")) {
+                fichier = new File(fichier.getAbsolutePath() + ".inst");
+            }
             this.controleur.sauvegarderInstrument(fichier);
         }
     }
