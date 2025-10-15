@@ -20,6 +20,7 @@ public class Touche implements java.io.Serializable {
     private Forme forme ;
     private Coordonnee coordonnee ;
     private Boolean estRecherchee;
+    private Character raccourciClavier;
 
     public Boolean getEstRecherchee() {
         return estRecherchee;
@@ -30,13 +31,15 @@ public class Touche implements java.io.Serializable {
     }
   
 
-    public Touche(Son son, Forme forme,Coordonnee coordonnee){
+    public Touche(Son son, Forme forme, Coordonnee coordonnee){
         this.son = son;
         this.estSelectionnee = false;
         this.estRecherchee = false;
         this.forme = forme;
         this.coordonnee = coordonnee;
-       
+        this.estSelectionnee = false;
+        this.estRecherchee = false;
+        this.raccourciClavier = null;
     }
 
     //Touche(Son sonTouche, Forme formeTouche, Coordonnee coordonneeCentreTouche) {
